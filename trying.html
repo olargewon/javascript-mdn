@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學習Javascript各種嘗試</title>
+</head>
+<body>
+    <button>點我吧</button>
+    <script>
+        //事件處理
+        let btn=document.querySelector('button');
+        btn.addEventListener('click',()=>{
+            alert('你點擊了');
+            btn.innerHTML='點擊了';
+        let pElem=document.createElement('p');
+            pElem.textContent='新增的內容';
+            document.body.appendChild(pElem);
+        })
+        //解構賦值
+        const gods = ['Apollo', 'Artemis', 'Ares', 'Zeus'];
+        gods.forEach(function (eachName, index){
+        console.log(index + '. ' + eachName);
+        });
+        gods.forEach(function(eachName,index){
+            console.log(index+eachName);
+            console.log(index,eachName);
+            console.log(eachName,index);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Basic</title>
+</head>
+<body>
+    <button id="btn">點我吧</button>
+    <br>
+    <hr>
+    <button id="hitButton">集氣中</button>
+    <script>
+        /*
+        let btn=document.querySelector("#btn");
+        let doIt=function(){
+            console.log(this.id);
+            alert('You trigered '+this.id);
+            btn.innerHTML="點擊了";
+        }
+        btn.addEventListener('click',doIt);
+        */
+        /*
+        const promise = new   Promise(function(resolve, reject) { 
+            // 成功時 
+            resolve(value) 
+            // 失敗時 
+            reject(reason) }); 
+
+        promise.then(function(value) { 
+            // on fulfillment(已實現時) 
+        }, function(reason) { 
+            // on rejection(已拒絕時) 
+        })
+        */
+       /*
+        let Bigtrick =  new Promise( (resolve,reject)=>{
+        // 可能是⼀個需要花時間的動作..
+        setTimeout(()=> resolve('火之呼吸'),3000);
+        // setTimeout(function resolve(){
+        //     resolve('火之呼吸');
+        //   },3000)
+        });
+
+        Bigtrick
+            .then((skill)=>console.log(`使用招式：${skill}`)) //promise成功
+            .catch((err)=>console.log(`${err}無法使用`))//promise失敗
+        */
+                      
+        let chi =0;
+        let i =0;
+        let hitButton =document.getElementById('hitButton');
+        let result =document.getElementById('result');
+
+        hitButton.onclick=function(e){
+        e.preventDefault();
+        chi +=1;
+        hitButton.innerHTML =`集氣 ${chi}次 `;
+        }
+        
+        let bigSkill =new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+
+            if(chi>=5){
+            resolve('水之呼吸！！');
+            }else{
+            reject('水之呼吸！！');
+            
+            };
+        
+        },3000);
+        });
+        bigSkill
+            .then((skill)=>console.log(`使用招式：${skill}`)) //promise成功
+            .catch((err)=>console.log(`${err}無法使用`))//promise失敗
+
+        //練習`字串+${變數}+字串`
+        let name="Sam Wang"
+        console.log('我的名字是 '+name);
+        console.log(`我的名字是 ${name}`);
+        let a='Karry Lee';
+        let str=`I like ${a}, because she is pretty.`;
+        console.log(str);
+        alert(str);
+    </script>
+</body>
+</html>
